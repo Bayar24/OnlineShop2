@@ -7,6 +7,7 @@ using System.Web;
 using System.Data.Entity;
 using System.Web.Mvc;
 using System.Collections;
+using System.Data.Entity.Validation;
 
 namespace OnlineShop.Controllers
 {
@@ -115,7 +116,14 @@ namespace OnlineShop.Controllers
             {
                 db.OrderDetails.Add(orderDetail);
             }
-            db.SaveChanges();
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                string s = ex.ToString();
+            }
             return RedirectToAction("ViewPayment", "Payment");
         }
     }

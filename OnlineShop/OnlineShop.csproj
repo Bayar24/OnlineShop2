@@ -169,6 +169,10 @@
     <Compile Include="Migrations\201811012113146_initial.Designer.cs">
       <DependentUpon>201811012113146_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811012136419_initial1.cs" />
+    <Compile Include="Migrations\201811012136419_initial1.Designer.cs">
+      <DependentUpon>201811012136419_initial1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Card.cs" />
@@ -324,6 +328,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201811012113146_initial.resx">
       <DependentUpon>201811012113146_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811012136419_initial1.resx">
+      <DependentUpon>201811012136419_initial1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
