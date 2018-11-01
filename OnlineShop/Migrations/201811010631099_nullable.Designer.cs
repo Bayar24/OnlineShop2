@@ -7,13 +7,13 @@ namespace OnlineShop.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class db : IMigrationMetadata
+    public sealed partial class nullable : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(db));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(nullable));
         
         string IMigrationMetadata.Id
         {
-            get { return "201810310044295_db"; }
+            get { return "201811010631099_nullable"; }
         }
         
         string IMigrationMetadata.Source

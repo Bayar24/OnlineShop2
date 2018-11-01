@@ -156,30 +156,16 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Context\OnlineShopContext.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201810301819385_initial.cs" />
-    <Compile Include="Migrations\201810301819385_initial.Designer.cs">
-      <DependentUpon>201810301819385_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810301908546_product.cs" />
-    <Compile Include="Migrations\201810301908546_product.Designer.cs">
-      <DependentUpon>201810301908546_product.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810302319036_SubcategoryDel.cs" />
-    <Compile Include="Migrations\201810302319036_SubcategoryDel.Designer.cs">
-      <DependentUpon>201810302319036_SubcategoryDel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810310044295_db.cs" />
-    <Compile Include="Migrations\201810310044295_db.Designer.cs">
-      <DependentUpon>201810310044295_db.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810310059556_db1.cs" />
-    <Compile Include="Migrations\201810310059556_db1.Designer.cs">
-      <DependentUpon>201810310059556_db1.cs</DependentUpon>
+    <Compile Include="Migrations\201811010631099_nullable.cs" />
+    <Compile Include="Migrations\201811010631099_nullable.Designer.cs">
+      <DependentUpon>201811010631099_nullable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Card.cs" />
@@ -196,6 +182,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\categories_responsive.css" />
+    <Content Include="Content\categories_styles.css" />
+    <Content Include="Content\contact_responsive.css" />
+    <Content Include="Content\contact_styles.css" />
     <Content Include="Content\Images\10596f0d6099469.jpg" />
     <Content Include="Content\Images\1752938.png.transform.bemfw.jpeg" />
     <Content Include="Content\Images\205982cfdb77d95.jpg" />
@@ -239,6 +229,10 @@
     <Content Include="Content\Images\UXmn3y.jpg" />
     <Content Include="Content\Images\wallpaper.jpg" />
     <Content Include="Content\Images\watches-background.jpg" />
+    <Content Include="Content\main_styles.css" />
+    <Content Include="Content\responsive.css" />
+    <Content Include="Content\single_responsive.css" />
+    <Content Include="Content\single_styles.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -294,6 +288,7 @@
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\View.cshtml" />
+    <Content Include="Views\ShoppingCart\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -310,22 +305,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Payment\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201810301819385_initial.resx">
-      <DependentUpon>201810301819385_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810301908546_product.resx">
-      <DependentUpon>201810301908546_product.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810302319036_SubcategoryDel.resx">
-      <DependentUpon>201810302319036_SubcategoryDel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810310044295_db.resx">
-      <DependentUpon>201810310044295_db.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810310059556_db1.resx">
-      <DependentUpon>201810310059556_db1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201811010631099_nullable.resx">
+      <DependentUpon>201811010631099_nullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -61,20 +61,20 @@ jQuery(document).ready(function ($) {
         var quantity = $(this).data('quantity');
 
         var data = {
-            'productId': id,
-            'quantity': quantity
+            'ProductId': id,
+            'Quantity': quantity
         };
 
         $.ajax({
             method: "POST",
-            url: "/ajaxAddItemToShoppingCart",
-            data : JSON.stringify(data),
+            url: "/ShoppingCart/Add",
+            data : "{OrderRequest:"+JSON.stringify(data)+"}",
             contentType: 'application/json',   // Sends
             success : function(itemsCount) {
                 checkout_items.removeClass('d-none');
                 checkout_items.text(itemsCount);
 
-                window.location = 'http://localhost:8080/shoppingcart';
+                window.location.href = '/ShoppingCart/Get';
             }
         });
 

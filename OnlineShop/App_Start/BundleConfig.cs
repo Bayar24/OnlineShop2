@@ -24,6 +24,14 @@ namespace OnlineShop
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/categories_responsive.css",
+                      "~/Content/categories_styles.css",
+                      "~/Content/contact_responsive.css",
+                      "~/Content/contact_styles.css",
+                      "~/Content/main_styles.css",
+                      "~/Content/responsive.css",
+                      "~/Content/single_responsive.css",
+                      "~/Content/single_styles.css",
                       "~/Content/site.css"));
         }
     }
