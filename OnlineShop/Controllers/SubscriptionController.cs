@@ -11,107 +11,107 @@ using OnlineShop.Models;
 
 namespace OnlineShop.Controllers
 {
-    public class CardsController : Controller
+    public class SubscriptionController : Controller
     {
         private OnlineShopContext db = new OnlineShopContext();
 
-        // GET: Cards
+        // GET: Subscriptions
         public ActionResult Index()
         {
-            return View(db.Cards.ToList());
+            return View(db.Subscriptions.ToList());
         }
 
-        // GET: Cards/Details/5
-        public ActionResult Details(long? id)
+        // GET: Subscriptions/Details/5
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Card card = db.Cards.Find(id);
-            if (card == null)
+            Subscription subscription = db.Subscriptions.Find(id);
+            if (subscription == null)
             {
                 return HttpNotFound();
             }
-            return View(card);
+            return View(subscription);
         }
 
-        // GET: Cards/Create
+        // GET: Subscriptions/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Cards/Create
+        // POST: Subscriptions/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CardId,CardNumber,CardHolderName,ExpYear,ExpMonth,CVV,ZipCode,CardType,CustomerId")] Card card)
+        public ActionResult Create([Bind(Include = "Id,Amount,CompPercentage,VendorPercentage,TaxPercentage,DateCreated,Status")] Subscription subscription)
         {
             if (ModelState.IsValid)
             {
-                db.Cards.Add(card);
+                db.Subscriptions.Add(subscription);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(card);
+            return View(subscription);
         }
 
-        // GET: Cards/Edit/5
-        public ActionResult Edit(long? id)
+        // GET: Subscriptions/Edit/5
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Card card = db.Cards.Find(id);
-            if (card == null)
+            Subscription subscription = db.Subscriptions.Find(id);
+            if (subscription == null)
             {
                 return HttpNotFound();
             }
-            return View(card);
+            return View(subscription);
         }
 
-        // POST: Cards/Edit/5
+        // POST: Subscriptions/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CardId,CardNumber,CardHolderName,ExpYear,ExpMonth,CVV,ZipCode,CardType,CustomerId")] Card card)
+        public ActionResult Edit([Bind(Include = "Id,Amount,CompPercentage,VendorPercentage,TaxPercentage,DateCreated,Status")] Subscription subscription)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(card).State = EntityState.Modified;
+                db.Entry(subscription).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(card);
+            return View(subscription);
         }
 
-        // GET: Cards/Delete/5
-        public ActionResult Delete(long? id)
+        // GET: Subscriptions/Delete/5
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Card card = db.Cards.Find(id);
-            if (card == null)
+            Subscription subscription = db.Subscriptions.Find(id);
+            if (subscription == null)
             {
                 return HttpNotFound();
             }
-            return View(card);
+            return View(subscription);
         }
 
-        // POST: Cards/Delete/5
+        // POST: Subscriptions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            Card card = db.Cards.Find(id);
-            db.Cards.Remove(card);
+            Subscription subscription = db.Subscriptions.Find(id);
+            db.Subscriptions.Remove(subscription);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

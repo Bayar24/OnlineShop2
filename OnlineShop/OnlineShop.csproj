@@ -155,12 +155,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Context\OnlineShopContext.cs" />
-    <Compile Include="Controllers\CardsController.cs" />
+    <Compile Include="Controllers\CardController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\SubscriptionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -172,6 +173,10 @@
     <Compile Include="Migrations\201811011908196_m1.Designer.cs">
       <DependentUpon>201811011908196_m1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811012027316_subscription.cs" />
+    <Compile Include="Migrations\201811012027316_subscription.Designer.cs">
+      <DependentUpon>201811012027316_subscription.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Card.cs" />
     <Compile Include="Models\Category.cs" />
@@ -180,6 +185,7 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Repositories\CategoryRepository.cs" />
     <Compile Include="Models\Repositories\ICategoryRepository.cs" />
+    <Compile Include="Models\Subscription.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -293,13 +299,18 @@
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\View.cshtml" />
-    <Content Include="Views\ShoppingCart\View.cshtml" />
+    <Content Include="Views\ShoppingCart\ViewCart.cshtml" />
     <Content Include="Views\Payment\Pay.cshtml" />
-    <Content Include="Views\Cards\Create.cshtml" />
-    <Content Include="Views\Cards\Delete.cshtml" />
-    <Content Include="Views\Cards\Details.cshtml" />
-    <Content Include="Views\Cards\Edit.cshtml" />
-    <Content Include="Views\Cards\Index.cshtml" />
+    <Content Include="Views\Card\Create.cshtml" />
+    <Content Include="Views\Card\Delete.cshtml" />
+    <Content Include="Views\Card\Details.cshtml" />
+    <Content Include="Views\Card\Edit.cshtml" />
+    <Content Include="Views\Card\Index.cshtml" />
+    <Content Include="Views\Subscription\Create.cshtml" />
+    <Content Include="Views\Subscription\Delete.cshtml" />
+    <Content Include="Views\Subscription\Details.cshtml" />
+    <Content Include="Views\Subscription\Edit.cshtml" />
+    <Content Include="Views\Subscription\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -323,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811011908196_m1.resx">
       <DependentUpon>201811011908196_m1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811012027316_subscription.resx">
+      <DependentUpon>201811012027316_subscription.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

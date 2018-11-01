@@ -30,15 +30,17 @@
                             <h3>Card Details</h3>
                             @if (ViewBag.Cards != null)
                             {
-                                foreach (var card in ViewBag.Cards)
-                                {
-                                    <label>
-                                        <input type="radio" id="cards" value="@(card.CardId)" name="selCard">
-                                        @(card.CardType) - XXXXXXXXXXXX@(card.CardNumber.Substring(11, 4)) -
-                                        @(card.ExpMonth)/@(card.ExpYear)
-                                    </label>
-                                    <br />
-                                }
+                                <div class="col-md-12 form-group">
+                                    @foreach (var card in ViewBag.Cards)
+                                    {
+                                        <label>
+                                            <input type="radio" id="cards" value="@(card.CardId)" name="selCard">
+                                            @(card.CardType) - XXXXXXXXXXXX@(card.CardNumber.Substring(11, 4)) -
+                                            @(card.ExpMonth)/@(card.ExpYear)
+                                        </label>
+                                        <br />
+                                    }
+                                </div>
                             }
                             @if (Model != null)
                             {
@@ -55,7 +57,6 @@
                                         <form:input type="hidden" path="total" />
                                         <form:input type="hidden" path="taxAmount" />
                                         <form:input type="hidden" path="totalAmount" />
-                                        <%--<form:errors path="orderPaymentId" />--%>
                                         <br>
                                     </div>
                                 </div>
@@ -137,19 +138,19 @@
                             <li>
                                 <a href="#">
                                     Subtotal
-                                    <span>$${total}</span>
+                                    <span>$@(ViewBag.Total)</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
                                     Tax amount
-                                    <span>$${taxAmount}</span>
+                                    <span>$@(ViewBag.TaxAmount)</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
                                     Total
-                                    <span>$${totalAmount}</span>
+                                    <span>$@(ViewBag.TotalAmount)</span>
                                 </a>
                             </li>
                         </ul>
@@ -158,4 +159,4 @@
             </div>
         </div>
     </div>
-
+</div>

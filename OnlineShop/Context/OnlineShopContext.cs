@@ -15,5 +15,6 @@ namespace OnlineShop.Context
         public DbSet<Card> Cards { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<Subscription> Subscriptions { get; set; }
     }
 }

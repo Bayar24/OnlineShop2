@@ -52,7 +52,7 @@ namespace OnlineShop.Controllers
 
             if (Session["shoppingCart"] == null)
             {
-                return View("View");
+                return View("ViewCart");
             }
 
             Dictionary<long, int> cartItems = (Dictionary<long, int>)Session["shoppingCart"];
@@ -69,7 +69,7 @@ namespace OnlineShop.Controllers
             ViewBag.CartItems = cartItems;
             ViewBag.Total = total;
 
-            return View("View");
+            return View("ViewCart");
         }
         public ActionResult Purchase()
         {
@@ -116,7 +116,7 @@ namespace OnlineShop.Controllers
                 db.OrderDetails.Add(orderDetail);
             }
             db.SaveChanges();
-            return RedirectToAction("View", "Payment");
+            return RedirectToAction("ViewPayment", "Payment");
         }
     }
 }
