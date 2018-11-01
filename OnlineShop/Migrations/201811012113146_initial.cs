@@ -3,7 +3,7 @@ namespace OnlineShop.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class nullable : DbMigration
+    public partial class initial : DbMigration
     {
         public override void Up()
         {
@@ -12,14 +12,13 @@ namespace OnlineShop.Migrations
                 c => new
                     {
                         CardId = c.Long(nullable: false, identity: true),
-                        CardNumber = c.String(),
-                        CardHolderName = c.String(),
+                        CardNumber = c.String(nullable: false),
+                        CardHolderName = c.String(nullable: false),
                         ExpYear = c.Int(nullable: false),
                         ExpMonth = c.Byte(nullable: false),
                         CVV = c.Int(nullable: false),
                         ZipCode = c.Int(nullable: false),
-                        Status = c.Byte(nullable: false),
-                        CardType = c.String(),
+                        CardType = c.String(nullable: false),
                         CustomerId = c.Long(nullable: false),
                     })
                 .PrimaryKey(t => t.CardId);
@@ -55,14 +54,30 @@ namespace OnlineShop.Migrations
                         OrderId = c.Long(nullable: false, identity: true),
                         Status = c.String(nullable: false),
                         OrderDate = c.DateTime(nullable: false),
-                        AddressId = c.Int(nullable: false),
+                        ZipCode = c.String(nullable: false),
+                        AddressId = c.Int(),
                         TotalAmount = c.Decimal(nullable: false, precision: 18, scale: 2),
                         CardId = c.Long(),
                         CustomerId = c.Long(nullable: false),
                     })
                 .PrimaryKey(t => t.OrderId)
+                .ForeignKey("dbo.Addresses", t => t.AddressId)
                 .ForeignKey("dbo.Cards", t => t.CardId)
+                .Index(t => t.AddressId)
                 .Index(t => t.CardId);
+            
+            CreateTable(
+                "dbo.Addresses",
+                c => new
+                    {
+                        AddressId = c.Int(nullable: false, identity: true),
+                        Street = c.String(nullable: false),
+                        City = c.String(nullable: false),
+                        State = c.String(nullable: false),
+                        ZipCode = c.String(nullable: false),
+                        Country = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.AddressId);
             
             CreateTable(
                 "dbo.Products",
@@ -80,6 +95,20 @@ namespace OnlineShop.Migrations
                 .ForeignKey("dbo.Categories", t => t.CategoryId, cascadeDelete: true)
                 .Index(t => t.CategoryId);
             
+            CreateTable(
+                "dbo.Subscriptions",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Amount = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        CompPercentage = c.Double(nullable: false),
+                        VendorPercentage = c.Double(nullable: false),
+                        TaxPercentage = c.Double(nullable: false),
+                        DateCreated = c.DateTime(nullable: false),
+                        Status = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
         }
         
         public override void Down()
@@ -88,11 +117,15 @@ namespace OnlineShop.Migrations
             DropForeignKey("dbo.Products", "CategoryId", "dbo.Categories");
             DropForeignKey("dbo.OrderDetails", "OrderId", "dbo.Orders");
             DropForeignKey("dbo.Orders", "CardId", "dbo.Cards");
+            DropForeignKey("dbo.Orders", "AddressId", "dbo.Addresses");
             DropIndex("dbo.Products", new[] { "CategoryId" });
             DropIndex("dbo.Orders", new[] { "CardId" });
+            DropIndex("dbo.Orders", new[] { "AddressId" });
             DropIndex("dbo.OrderDetails", new[] { "ProductId" });
             DropIndex("dbo.OrderDetails", new[] { "OrderId" });
+            DropTable("dbo.Subscriptions");
             DropTable("dbo.Products");
+            DropTable("dbo.Addresses");
             DropTable("dbo.Orders");
             DropTable("dbo.OrderDetails");
             DropTable("dbo.Categories");

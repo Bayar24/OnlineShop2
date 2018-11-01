@@ -165,19 +165,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201811010631099_nullable.cs" />
-    <Compile Include="Migrations\201811010631099_nullable.Designer.cs">
-      <DependentUpon>201811010631099_nullable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811011908196_m1.cs" />
-    <Compile Include="Migrations\201811011908196_m1.Designer.cs">
-      <DependentUpon>201811011908196_m1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811012027316_subscription.cs" />
-    <Compile Include="Migrations\201811012027316_subscription.Designer.cs">
-      <DependentUpon>201811012027316_subscription.cs</DependentUpon>
+    <Compile Include="Migrations\201811012113146_initial.cs" />
+    <Compile Include="Migrations\201811012113146_initial.Designer.cs">
+      <DependentUpon>201811012113146_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Card.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Order.cs" />
@@ -329,14 +322,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201811010631099_nullable.resx">
-      <DependentUpon>201811010631099_nullable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811011908196_m1.resx">
-      <DependentUpon>201811011908196_m1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811012027316_subscription.resx">
-      <DependentUpon>201811012027316_subscription.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201811012113146_initial.resx">
+      <DependentUpon>201811012113146_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
