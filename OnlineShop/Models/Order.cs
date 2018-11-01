@@ -15,6 +15,8 @@ namespace OnlineShop.Models
         public string Status { get; set; }
         [Required()]
         public DateTime OrderDate { get; set; }
+        [Required()]
+        public string ZipCode { get; set; }
         public int AddressId { get; set; }
         public decimal TotalAmount { get; set; }
         public long? CardId { get; set; }

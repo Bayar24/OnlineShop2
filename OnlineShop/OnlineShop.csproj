@@ -155,6 +155,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Context\OnlineShopContext.cs" />
+    <Compile Include="Controllers\CardsController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
@@ -166,6 +167,10 @@
     <Compile Include="Migrations\201811010631099_nullable.cs" />
     <Compile Include="Migrations\201811010631099_nullable.Designer.cs">
       <DependentUpon>201811010631099_nullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811011908196_m1.cs" />
+    <Compile Include="Migrations\201811011908196_m1.Designer.cs">
+      <DependentUpon>201811011908196_m1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Card.cs" />
@@ -289,6 +294,12 @@
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\View.cshtml" />
     <Content Include="Views\ShoppingCart\View.cshtml" />
+    <Content Include="Views\Payment\Pay.cshtml" />
+    <Content Include="Views\Cards\Create.cshtml" />
+    <Content Include="Views\Cards\Delete.cshtml" />
+    <Content Include="Views\Cards\Details.cshtml" />
+    <Content Include="Views\Cards\Edit.cshtml" />
+    <Content Include="Views\Cards\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -305,11 +316,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Payment\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201811010631099_nullable.resx">
       <DependentUpon>201811010631099_nullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811011908196_m1.resx">
+      <DependentUpon>201811011908196_m1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
